@@ -1,0 +1,6 @@
+pt-BR:
+  currency:
+    initials:
+      USDBRL: Real
+      USDEUR: Euro
+      USDARS: Peso Argentino
