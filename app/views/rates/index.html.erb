@@ -7,17 +7,11 @@
     <div class="row">
       <div class="col-md-12">
         <div class="row justify-content-around">
-          <button type="button" name="button" class="btn btn-outline-dark btn-lg">
-            REAL vs DOLAR
-          </button>
+          <%= link_to "Dolar X Real", rates_path(currency: 'USDBRL'), class: "btn btn-outline-dark btn-lg" %>
 
-          <button type="button" name="button" class="btn btn-outline-dark btn-lg">
-            REAL vs EURO
-          </button>
+          <%= link_to "Dolar X Euro", rates_path(currency: 'USDEUR'), class: "btn btn-outline-dark btn-lg" %>
 
-          <button type="button" name="button" class="btn btn-outline-dark btn-lg">
-            REAL vs PESOS
-          </button>
+          <%= link_to "Dolar X Peso (Argentino)", rates_path(currency: 'USDARS'), class: "btn btn-outline-dark btn-lg" %>
         </div>
       </div>
     </div>

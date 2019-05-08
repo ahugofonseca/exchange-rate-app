@@ -21,8 +21,9 @@ class RatesController < ApplicationController
   end
 
   def set_values
+    currency = params[:currency].present? ? params[:currency] : 'USDBRL'
     @days.map do |day|
-      ExternalServices::CurrencyLayer::GetHistoricalRate.call({date: day, currency: 'USDBRL'})
+      ExternalServices::CurrencyLayer::GetHistoricalRate.call({date: day, currency: currency})
     end
   end
 end
