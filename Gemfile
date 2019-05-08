@@ -14,16 +14,27 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 
 ## Assets and Views Gems ###################################################################################################
-# Use CoffeeScript for .coffee assets and views
-gem 'coffee-rails', '~> 4.2'
+# Bootstrap 4 rubygem for Rails
+gem 'bootstrap', '~> 4.3.1'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
+# Using jQuery with Rails
+gem 'jquery-rails'
+# Popper.js assets as a Ruby gem.
+gem 'popper_js', '~> 1.14.5'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
 gem 'turbolinks', '~> 5'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
+
+
+## Tools ###################################################################################################################
+# Wropper to HTTP requests
+gem 'httparty'
+# Work with HighCharts on Rails
+gem 'lazy_high_charts'
 
 
 group :development, :test do
