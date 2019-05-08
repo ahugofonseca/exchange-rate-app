@@ -3,6 +3,9 @@ class RatesController < ApplicationController
 
   def index
     @chart = Charts::BuildRatesCharts.call(@currency)
+  rescue Charts::BuildRatesCharts::InvalidCurrency
+    flash[:alert] = 'Esta moeda é invalida'
+    redirect_to rates_path
   end
 
   private

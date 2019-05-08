@@ -1,5 +1,7 @@
 module Charts
   class BuildRatesCharts
+    class InvalidCurrency < StandardError; end
+
     class << self
       def call(currency)
         self.new(currency).build_rates_charts
@@ -8,6 +10,7 @@ module Charts
 
     def initialize(currency)
       @currency = currency
+      raise InvalidCurrency if is_invalid_currency?
       set_days
     end
 
@@ -34,6 +37,10 @@ module Charts
       @days.map do |day|
         ExternalServices::CurrencyLayer::GetHistoricalRate.call({date: day, currency: @currency})
       end
+    end
+
+    def is_invalid_currency?
+      ['USDBRL', 'USDEUR', 'USDARS'].exclude?(@currency)
     end
   end
 end
