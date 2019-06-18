@@ -2,17 +2,17 @@ module Charts
   class BuildRatesCharts
     class InvalidCurrency < StandardError; end
 
-    class << self
-      def call(currency)
-        self.new(currency).build_rates_charts
-      end
-    end
-
     def initialize(currency)
       @currency = currency
       raise InvalidCurrency if is_invalid_currency?
       set_days
     end
+
+    def call
+      build_rates_charts
+    end
+
+    private
 
     def build_rates_charts
       LazyHighCharts::HighChart.new('graph') do |f|
@@ -26,11 +26,10 @@ module Charts
       end
     end
 
-    private
-
     def set_days
       @days = []
       (6).downto(0) {|day| @days << "#{Date.today-day}" }
+      # (6).downto(0) {|day| @days << "#{(Date.today-day).strftime('%d/%m/%Y')}" }
     end
 
     def set_values

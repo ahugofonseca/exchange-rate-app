@@ -2,7 +2,7 @@ class RatesController < ApplicationController
   before_action :set_currency, only: %i(index)
 
   def index
-    @chart = Charts::BuildRatesCharts.call(@currency)
+    @chart = Charts::BuildRatesCharts.new(@currency).call
   rescue Charts::BuildRatesCharts::InvalidCurrency
     flash[:alert] = 'Esta moeda é invalida'
     redirect_to rates_path
